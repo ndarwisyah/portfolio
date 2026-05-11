@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: SME Brand Identities — Nur Darwisyah</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME: Dark / Blue Accent / Cream Text (Branding & Identity Edition)
+   ============================================================ */
+:root {
+  --bg:          #0A0A0A; 
+  --card-bg:     #141414;
+  --text-main:   #F5F2EC; /* Homepage Cream */
+  --text-dim:    #A0A0A0;
+  --accent:      #007AFF; /* Homepage Blue */
+  --border:      rgba(245, 242, 236, 0.08);
+  
+  --serif: 'Instrument Serif', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --ease:  cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nav - Fixed & Linked to Root */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 48px; background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
+}
+
+.nav-logo { font-family: var(--serif); font-size: 22px; color: var(--text-main); text-decoration: none; }
+.nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 400; }
+.nav-links a { text-decoration: none; color: var(--text-main); transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { padding: 180px 48px 80px; max-width: 1200px; margin: 0 auto; }
+.label { 
+  font-family: var(--mono); font-size: 11px; color: var(--accent); 
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block;
+}
+.hero-title { 
+  font-family: var(--serif); font-size: clamp(48px, 8vw, 92px); 
+  line-height: 0.9; font-weight: 400; margin-bottom: 40px; letter-spacing: -0.02em;
+}
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: end; }
+.hero-desc { font-size: 20px; color: var(--text-dim); font-weight: 300; max-width: 540px; }
+
+/* Dynamic Tags Bar */
+.brand-meta-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--card-bg); margin: 60px 0;
+  border: 1px solid var(--border);
+}
+.meta-item { padding: 32px; border-right: 1px solid var(--border); }
+.meta-item:last-child { border-right: none; }
+.meta-num { font-family: var(--serif); font-size: 40px; color: var(--accent); display: block; line-height: 1; margin-bottom: 8px; }
+.meta-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+/* Sections */
+.section { padding: 80px 48px; max-width: 1200px; margin: 0 auto; }
+.h-section { font-family: var(--serif); font-size: 48px; margin-bottom: 32px; font-weight: 400; }
+.grid-2 { display: grid; grid-template-columns: 1.2fr 1.1fr; gap: 80px; align-items: center; }
+
+/* Category Showcase (Unique Layout for SME Portfolio) */
+.category-block { margin-bottom: 120px; }
+.category-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 40px; }
+.cat-title { font-family: var(--serif); font-size: 36px; font-weight: 400; }
+.cat-tag { font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase; }
+
+.gallery-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 32px; }
+.gallery-tall { grid-row: span 2; }
+.artwork-placeholder { 
+  background: var(--card-bg); border: 1px solid var(--border); 
+  aspect-ratio: 4/3; display: flex; flex-direction: column; justify-content: flex-end; 
+  padding: 24px; position: relative; overflow: hidden; transition: 0.4s var(--ease);
+}
+.artwork-placeholder.gallery-tall { aspect-ratio: 3/4; }
+.artwork-placeholder:hover { border-color: var(--accent); }
+.art-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; z-index: 2; }
+.art-title { font-size: 16px; color: var(--text-main); font-weight: 500; margin-top: 4px; z-index: 2; }
+
+/* System Specs Table (Varied for Style Anatomy) */
+.specs-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.specs-table th { text-align: left; font-family: var(--mono); font-size: 11px; color: var(--text-dim); padding: 20px; border-bottom: 1px solid var(--border); text-transform: uppercase; }
+.specs-table td { padding: 24px 20px; border-bottom: 1px solid var(--border); font-size: 16px; }
+.style-tag { display: inline-block; padding: 4px 10px; background: rgba(0, 122, 255, 0.1); border: 1px solid rgba(0, 122, 255, 0.2); color: var(--accent); font-family: var(--mono); font-size: 11px; border-radius: 2px; }
+
+/* CTA Block */
+.cta-block { background: var(--accent); color: white; padding: 120px 48px; text-align: center; }
+.cta-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); margin-bottom: 40px; font-weight: 400; }
+.cta-btn { 
+  display: inline-block; padding: 24px 60px; background: white; color: var(--accent); 
+  font-family: var(--sans); font-size: 14px; font-weight: 600; text-transform: uppercase; text-decoration: none;
+  transition: 0.3s;
+}
+.cta-btn:hover { background: var(--bg); color: white; transform: translateY(-3px); }
+
+/* Footer Nav */
+.footer-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); margin-top: 100px; }
+.footer-item { padding: 60px 48px; border-right: 1px solid var(--border); text-decoration: none; transition: 0.3s; }
+.footer-item:last-child { border-right: none; text-align: right; }
+.footer-item:hover { background: #111; }
+.footer-dir { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; display: block; }
+.footer-title { font-family: var(--serif); font-size: 28px; color: var(--text-main); }
+
+/* Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 850px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .hero-grid, .gallery-grid, .brand-meta-bar, .footer-nav, .grid-2 { grid-template-columns: 1fr; }
+  .artwork-placeholder.gallery-tall { aspect-ratio: 4/3; }
+  .hero, .section { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nur Darwisyah</a>
+  <div class="nav-links">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="label reveal">Project 04 — SME Brand Identities</span>
+  <h1 class="hero-title reveal">Sculpting distinctive visual voice for <em>Growing SMEs</em>.</h1>
+  <div class="hero-grid">
+    <p class="hero-desc reveal">A curated showcase of end-to-end visual identity systems designed for retail, lifestyle, and food & beverage brands, bridging custom illustration styles with practical marketing collateral.</p>
+    <div class="reveal" style="font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase;">
+      Brand Strategy / Identity Systems / Illustration Styles
+    </div>
+  </div>
+
+  <div class="brand-meta-bar reveal">
+    <div class="meta-item">
+      <span class="meta-num">3+</span>
+      <span class="meta-label">Years of Freelance<br>Brand Building</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">100%</span>
+      <span class="meta-label">Cohesive Visual<br>Asset Systems</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">SME</span>
+      <span class="meta-label">Retail & F&B<br>Niche Focus</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-num">Multi</span>
+      <span class="meta-label">Print & Digital<br>Deliverables</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="grid-2">
+    <div class="reveal">
+      <h2 class="h-section">The Philosophy</h2>
+      <p style="color: var(--text-dim); font-size: 18px; font-weight: 300;">SMEs don’t just need beautiful logos; they need functional design systems. My focus is on equipping emerging business owners with adaptable illustration guides, easily updated social templates, and distinct brand identities that grow alongside their customer base.</p>
+    </div>
+    <div class="reveal" style="padding-left: 40px; border-left: 1px solid var(--border);">
+      <p style="font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px;">Core Principles</p>
+      <p style="font-size: 16px; color: var(--text-dim); margin-bottom: 16px;"><strong>Scalability:</strong> Assets designed to look sharp on a tiny Instagram avatar or a physical retail storefront sign.</p>
+      <p style="font-size: 16px; color: var(--text-dim);"><strong>Authenticity:</strong> Hand-rendered illustration details that make boutique brands feel intensely human.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section category-block">
+  <div class="category-header reveal">
+    <h2 class="cat-title">01 / Retail & Lifestyle</h2>
+    <span class="cat-tag">Clean, Airy, Typography-led</span>
+  </div>
+  
+  <div class="gallery-grid">
+    <div class="artwork-placeholder gallery-tall reveal">
+      <span class="art-label">Boutique Brand Identity</span>
+      <h4 class="art-title">[ IMAGE: Full Brand Board Visual ]</h4>
+    </div>
+    <div class="artwork-placeholder reveal">
+      <span class="art-label">Business Cards & Paper Assets</span>
+      <h4 class="art-title">[ IMAGE: Mockup of Stationery System ]</h4>
+    </div>
+    <div class="artwork-placeholder reveal">
+      <span class="art-label">Curated Color Studies</span>
+      <h4 class="art-title">[ IMAGE: Earthy, Soft-Toned Color Palette ]</h4>
+    </div>
+  </div>
+</section>
+
+<section class="section category-block" style="padding-top: 0;">
+  <div class="category-header reveal">
+    <h2 class="cat-title">02 / Food & Beverage</h2>
+    <span class="cat-tag">Charming, Illustrative, Playful</span>
+  </div>
+  
+  <div class="gallery-grid">
+    <div class="artwork-placeholder reveal">
+      <span class="art-label">Packaging & Container Systems</span>
+      <h4 class="art-title">[ IMAGE: Custom Cups / Bakery Bags ]</h4>
+    </div>
+    <div class="artwork-placeholder gallery-tall reveal">
+      <span class="art-label">Vector Illustration Mascot</span>
+      <h4 class="art-title">[ IMAGE: Playful Character/Icon Artwork ]</h4>
+    </div>
+    <div class="artwork-placeholder reveal">
+      <span class="art-label">Menu System Board</span>
+      <h4 class="art-title">[ IMAGE: Responsive Digital Menu Display ]</h4>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <h2 class="h-section reveal">Brand Style Directory</h2>
+  <table class="specs-table reveal">
+    <thead>
+      <tr>
+        <th>Industry Segment</th>
+        <th>Primary Design Style</th>
+        <th>Typical Key Elements</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Boutique & Retail</td>
+        <td><span class="style-tag">Minimalist Modern</span></td>
+        <td>Monoline vectors, elegant serif styling, earthy organic shades</td>
+      </tr>
+      <tr>
+        <td>Bouteries & Coffee Brands</td>
+        <td><span class="style-tag">Charming Hand-Drawn</span></td>
+        <td>Thick custom-drawn lines, bright contrasts, illustrated brand mascots</td>
+      </tr>
+      <tr>
+        <td>F&B and Craft Packaging</td>
+        <td><span class="style-tag">High-Contrast Grid</span></td>
+        <td>Structured typographic layouts, playful custom pattern backdrops</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="cta-block reveal">
+  <h2 class="cta-title">Want to redefine how your brand feels?</h2>
+  <a href="../index.html#contact" class="cta-btn">Let's build a style →</a>
+</div>
+
+<footer class="footer-nav">
+  <a href="budi-madani.html" class="footer-item">
+    <span class="footer-dir">← Previous Project</span>
+    <div class="footer-title">Budi Madani</div>
+  </a>
+  <a href="../index.html#work" class="footer-item">
+    <span class="footer-dir">Return</span>
+    <div class="footer-title">All Work</div>
+  </a>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

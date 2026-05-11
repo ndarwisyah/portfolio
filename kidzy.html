@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Kidzy — Nur Darwisyah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME: Matched to Homepage (Dark / Blue Accent / Cream Text)
+   ============================================================ */
+:root {
+  --bg:          #0A0A0A; /* Deep Black */
+  --card-bg:     #141414; /* Slightly lighter for cards */
+  --text-main:   #F5F2EC; /* Homepage Cream */
+  --text-dim:    #A0A0A0;
+  --accent:      #007AFF; /* Homepage Blue (from "Let's Talk" button) */
+  --accent-soft: rgba(0, 122, 255, 0.1);
+  --border:      rgba(245, 242, 236, 0.08);
+  
+  --serif: 'Instrument Serif', serif;
+  --sans:  'DM Sans', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --ease:  cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Nav - Styled to match homepage header */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24px 48px; background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
+}
+
+.nav-logo { font-family: var(--serif); font-size: 22px; color: var(--text-main); }
+.nav-links { display: flex; gap: 32px; font-size: 14px; font-weight: 400; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { padding: 180px 48px 100px; max-width: 1200px; margin: 0 auto; }
+.label { 
+  font-family: var(--mono); font-size: 11px; color: var(--accent); 
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: block;
+}
+.hero-title { 
+  font-family: var(--serif); font-size: clamp(48px, 8vw, 92px); 
+  line-height: 0.9; font-weight: 400; margin-bottom: 40px; letter-spacing: -0.02em;
+}
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: end; }
+.hero-desc { font-size: 20px; color: var(--text-dim); font-weight: 300; max-width: 540px; line-height: 1.5; }
+
+/* Metrics Bar */
+.metrics-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--card-bg); margin: 80px 0;
+  border: 1px solid var(--border);
+}
+.metric-item { padding: 40px; border-right: 1px solid var(--border); }
+.metric-item:last-child { border-right: none; }
+.metric-num { font-family: var(--serif); font-size: 48px; color: var(--accent); display: block; line-height: 1; margin-bottom: 8px; }
+.metric-label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+/* Sections */
+.section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+.h-section { font-family: var(--serif); font-size: 48px; margin-bottom: 32px; font-weight: 400; color: var(--text-main); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+
+/* Cards & Lists */
+.problem-card { background: var(--card-bg); padding: 40px; border: 1px solid var(--border); }
+.list-item { 
+  padding: 16px 0; border-bottom: 1px solid var(--border); 
+  color: var(--text-dim); font-size: 16px; display: flex; gap: 16px;
+}
+.list-item::before { content: "→"; color: var(--accent); font-weight: bold; }
+
+/* Results Table - Clean & High Contrast */
+.results-table { width: 100%; border-collapse: collapse; margin-top: 40px; border: 1px solid var(--border); }
+.results-table th { text-align: left; font-family: var(--mono); font-size: 11px; color: var(--text-dim); padding: 24px; border-bottom: 1px solid var(--border); text-transform: uppercase; }
+.results-table td { padding: 24px; border-bottom: 1px solid var(--border); font-size: 16px; }
+.val-before { color: var(--text-dim); opacity: 0.5; text-decoration: line-through; }
+.val-after { color: var(--accent); font-weight: 500; }
+
+/* CTA Block - Styled like your Blue "Let's Talk" Button */
+.cta-block { background: var(--accent); color: white; padding: 120px 48px; text-align: center; }
+.cta-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); margin-bottom: 48px; font-weight: 400; }
+.cta-btn { 
+  display: inline-block; padding: 24px 60px; background: white; color: var(--accent); 
+  font-family: var(--sans); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+  transition: 0.3s;
+}
+.cta-btn:hover { background: var(--bg); color: white; transform: translateY(-3px); }
+
+/* Reveal Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 850px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .hero-grid, .grid-2, .metrics-bar { grid-template-columns: 1fr; }
+  .hero, .section { padding-left: 24px; padding-right: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">Nur Darwisyah</a>
+  
+  <div class="nav-links">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </div> </nav>
+  
+<header class="hero">
+  <span class="label reveal">Case Study 01</span>
+  <h1 class="hero-title reveal">Turning passive traffic into <em>High-Intent Buyers</em>.</h1>
+  <div class="hero-grid">
+    <p class="hero-desc reveal">I re-architected Kidzy’s landing page funnel, focusing on mobile-first responsiveness and a conversion-led hierarchy. The result was a functional product launch with 44 immediate sales.</p>
+    <div class="reveal" style="font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase;">
+      Digital Funnel Strategy / 2026
+    </div>
+  </div>
+
+  <div class="metrics-bar reveal">
+    <div class="metric-item">
+      <span class="metric-num">44</span>
+      <span class="metric-label">Immediate<br>Conversions</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">4.04%</span>
+      <span class="metric-label">CTR Post<br>Optimization</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">120K</span>
+      <span class="metric-label">Campaign<br>Impressions</span>
+    </div>
+    <div class="metric-item">
+      <span class="metric-num">0</span>
+      <span class="metric-label">Bounce Rate<br>at Checkout</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="grid-2">
+    <div class="reveal">
+      <h2 class="h-section">The Friction</h2>
+      <p style="color: var(--text-dim); font-size: 18px;">Despite high ad impressions, users were dropping off immediately. The page lacked a logical narrative flow, and the "Buy" trigger was hidden behind blocks of repetitive content.</p>
+    </div>
+    <div class="reveal problem-card">
+      <div class="list-item">Mobile layout was breaking on 70% of devices</div>
+      <div class="list-item">Decision paralysis due to duplicate info</div>
+      <div class="list-item">Value proposition was buried below the fold</div>
+      <div class="list-item">No visual hierarchy to guide the purchase</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <div class="reveal" style="background: #141414; border: 1px solid var(--border); padding: 80px; text-align: center; color: #444; font-family: var(--mono); font-size: 12px;">
+    [ INSERT: BEFORE vs AFTER COMPARISON MOCKUP HERE ]
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="h-section reveal">Measurable Impact</h2>
+  <table class="results-table reveal">
+    <thead>
+      <tr>
+        <th>Performance Indicator</th>
+        <th>Legacy State</th>
+        <th>Optimized State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Click-Through Rate (CTR)</td>
+        <td class="val-before">3.16%</td>
+        <td class="val-after">4.04% (+27.8%)</td>
+      </tr>
+      <tr>
+        <td>Total Conversions</td>
+        <td class="val-before">0</td>
+        <td class="val-after">44 Purchases</td>
+      </tr>
+      <tr>
+        <td>Mobile Checkout Flow</td>
+        <td class="val-before">Non-functional</td>
+        <td class="val-after">100% Responsive</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="cta-block reveal">
+  <h2 class="cta-title">Is your funnel losing revenue? Let's fix it.</h2>
+  <a href="index.html#contact" class="cta-btn">Let's Talk Strategy →</a>
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
