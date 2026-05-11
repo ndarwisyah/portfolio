@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nur Darwisyah — Creative Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* --- The New Modern Tech Palette --- */
+  --cream: #FAF9F6;          /* Crisp, clean, ultra-light off-white (not yellow/warm) */
+  --ink: #0F0F10;            /* Rich, deep carbon black for high-contrast readability */
+  --ink-soft: #3F3F46;       /* Sleek zinc gray for secondary text and descriptions */
+  --ink-muted: #71717A;      /* Modern neutral gray for labels, tags, and small details */
+  --accent: #0077ff;         /* Keep your vibrant electric blue (looks incredible on dark/light) */
+  --accent-soft: #e0f2fe;    /* Replaced beige with a clean, soft sky-blue tint for tag backgrounds */
+  --white: #FFFFFF;
+  
+  /* --- Clean Borders & Accents --- */
+  --border: rgba(15, 15, 16, 0.08); /* Crisp, sharp borders with no muddy undertones */
+  --card-bg: #FFFFFF;        /* Pure white for card elevation */
+
+  /* --- The Modern Typography System --- */
+  --serif: 'Instrument Serif', serif; /* Kept for your large, stylish display headers */
+  --sans: 'Inter', sans-serif;         /* NEW: Clean, hyper-modern body font (Inter) */
+  --mono: 'DM Mono', monospace;       /* Kept for technical labels and numbers */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+/* ============================================================
+   Perfect Glassmorphism Nav (Capsule Style)
+   ============================================================ */
+nav {
+  position: fixed;
+  top: 24px; /* Floats it off the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 1000;
+  
+  /* 1. TOTALLY ROUNDED CORNERS (Capsule) */
+  border-radius: 100px; 
+  
+  /* 2. Light translucent glass (creates beautiful contrast on your dark background) */
+  background-color: rgba(255, 255, 255, 0.07); 
+  
+  /* 3. Intense Gaussian Blur */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* 4. Brighter border to make the glass edge "glow" and pop */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  
+  /* Padding & Layout */
+  padding: 12px 24px; /* Slightly slimmer for a sleeker profile */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* Subtle shadow for depth */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* ============================================================
+   The Two Action Buttons (Strict Class-Based Selectors)
+   ============================================================ */
+
+/* 1. Download Portfolio PDF Button */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent !important;
+  color: #0A0A0A !important;
+  border: 1px solid rgba(10, 10, 10, 0.15) !important;
+  padding: 10px 20px !important;
+  border-radius: 100px !important; 
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease !important;
+}
+
+.btn-download:hover {
+  background-color: rgba(10, 10, 10, 0.05) !important;
+  border-color: #0A0A0A !important;
+}
+
+/* 2. Let's Talk Button (Only this class gets the blue pill) */
+.btn-lets-talk {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007AFF !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 10px 24px !important;
+  border-radius: 100px !important; 
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 122, 255, 0.15);
+  transition: all 0.3s ease !important;
+}
+
+.btn-lets-talk:hover {
+  background-color: #0056b3 !important;
+  box-shadow: 0 6px 20px rgba(0, 122, 255, 0.3);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 400; color: var(--ink-soft);
+  text-decoration: none; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-outline {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+  padding: 8px 18px; border: 1px solid var(--ink);
+  background: transparent; color: var(--ink);
+  cursor: pointer; text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--ink); color: var(--white); }
+.btn-fill {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+  padding: 8px 18px; border: 1px solid var(--accent);
+  background: var(--accent); color: var(--white);
+  cursor: pointer; text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-fill:hover { background: #b05520; border-color: #b05520; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 80px;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 60px 80px 60px;
+  border-right: 0.5px solid var(--border);
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 28px;
+}
+.hero-tag::before {
+  content: '';
+  width: 20px; height: 1px; background: var(--accent);
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 15px; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.75; max-width: 440px; margin-bottom: 20px;
+}
+.hero-availability {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; color: var(--ink-muted);
+  margin-bottom: 40px;
+}
+.dot-green {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #3B8A52;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-right {
+    /* 1. This loads your photo as the background */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url('images/me.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* 2. Keeps your layout exactly the same */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    /* 3. THE MAGIC TRICK: This forces all the text to sit at the bottom of the picture */
+    justify-content: flex-end; 
+    
+    padding: 40px;
+    color: var(--white);
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+/* 2. This makes the smaller description text under the numbers extra sharp and readable */
+.hero-stats .stat-item p {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Adds a tiny shadow behind the letters so they never blend in */
+}
+
+.hero-stats .stat-item h3 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Makes the big numbers ultra-clear */
+}
+.hero-right-top {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 60px 50px 40px;
+}
+.hero-name-large {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400; font-style: italic;
+  color: var(--white);
+  line-height: 1.2; margin-bottom: 16px;
+}
+.hero-role-chip {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero-stats {
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+  display: grid; grid-template-columns: repeat(3,1fr);
+}
+.stat-item {
+  padding: 28px 24px;
+  border-right: 0.5px solid rgba(255,255,255,0.1);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif); font-size: 28px; font-weight: 400;
+  color: var(--white); line-height: 1; margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 11px; font-weight: 300;
+  color: rgba(255,255,255,0.45); line-height: 1.4;
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  overflow: hidden; padding: 14px 0;
+  background: var(--white);
+}
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+.marquee-item {
+  font-family: var(--mono); font-size: 11px;
+  font-weight: 500; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-muted);
+  white-space: nowrap; padding: 0 32px;
+  display: flex; align-items: center; gap: 32px;
+}
+.marquee-item::after {
+  content: '·'; color: var(--accent); font-size: 16px;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SECTIONS */
+section { padding: 100px 60px; }
+.section-label {
+  font-family: var(--mono); font-size: 11px;
+  font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+}
+.section-label::after {
+  content: ''; flex: 1; height: 0.5px; background: var(--border); max-width: 60px;
+}
+.section-h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400; line-height: 1.15;
+  letter-spacing: -0.02em; color: var(--ink);
+  margin-bottom: 48px;
+}
+.section-h2 em { font-style: italic; color: var(--accent); }
+
+/* ABOUT */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px;
+  align-items: start;
+}
+.about-image-block {
+  position: relative;
+}
+.about-image-placeholder {
+  width: 100%; aspect-ratio: 4/5;
+  background: var(--ink);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.about-image-label {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-top: 12px;
+}
+.about-badge {
+  position: absolute; bottom: -16px; right: -16px;
+  background: var(--accent); color: var(--white);
+  padding: 14px 20px;
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  line-height: 1.5;
+}
+.about-content {}
+.about-p {
+  font-size: 15px; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.85; margin-bottom: 20px;
+}
+.about-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px;
+}
+/* ============================================================
+   Modern UI Rounded Tags (About Me Section)
+   ============================================================ */
+.chip {
+  font-family: var(--mono);
+  font-size: 11px; /* Slightly bumped up for crisp legibility */
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  
+  /* 1. Sleeker capsule padding (narrower top/bottom, wider sides) */
+  padding: 8px 18px;
+  
+  /* 2. Totally rounded capsule corners */
+  border-radius: 100px;
+  
+  /* 3. Refined border and soft background */
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  background: rgba(10, 10, 10, 0.02);
+  color: var(--ink-soft);
+  
+  /* 4. Elegant transitions for animations */
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex;
+  align-items: center;
+  margin: 4px 2px; /* Smooth spacing when wrapping */
+}
+
+/* Primary Highlight (National Design Awardee) */
+.chip-accent {
+  background: rgba(0, 122, 255, 0.06) !important; /* Soft blue tint matching your capsule nav */
+  color: var(--accent) !important;
+  border: 1px solid rgba(0, 122, 255, 0.15) !important;
+}
+
+/* Subtle, modern hover effects */
+.chip:hover {
+  transform: translateY(-2px);
+  background: rgba(10, 10, 10, 0.06);
+  border-color: rgba(10, 10, 10, 0.18);
+  color: var(--ink); /* Darker text on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.chip-accent:hover {
+  background: rgba(0, 122, 255, 0.1) !important;
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.08);
+}
+
+/* WORK */
+.work-section { background: var(--white); }
+.work-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+.work-card {
+  position: relative; overflow: hidden;
+  background: var(--cream); cursor: pointer;
+  group: true;
+}
+.work-card-inner {
+  padding: 40px;
+  border: 0.5px solid var(--border);
+  height: 100%; min-height: 360px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: border-color 0.3s;
+}
+.work-card-inner:hover { border-color: var(--accent); }
+.work-card-inner:hover .work-arrow { opacity: 1; transform: translateX(0); }
+.work-tag {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 20px;
+}
+.work-card-num {
+  font-family: var(--serif); font-size: 72px;
+  font-weight: 400; color: rgba(26,25,22,0.05);
+  line-height: 1; margin-bottom: -20px;
+}
+.work-title {
+  font-family: var(--serif); font-size: 22px;
+  font-weight: 400; line-height: 1.25;
+  color: var(--ink); margin-bottom: 12px;
+}
+.work-desc {
+  font-size: 13px; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.7; margin-bottom: 20px;
+}
+.work-metrics {
+  display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.work-metric {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--accent); font-weight: 500;
+}
+.work-arrow {
+  font-size: 13px; color: var(--accent);
+  opacity: 0; transform: translateX(-8px);
+  transition: all 0.3s; display: inline-flex; align-items: center; gap: 6px;
+}
+
+/* CASE STUDIES */
+.case-study {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  padding: 60px 0; border-bottom: 0.5px solid var(--border);
+}
+.case-study:last-child { border-bottom: none; }
+.case-study.reverse { direction: rtl; }
+.case-study.reverse > * { direction: ltr; }
+.case-visual {
+  background: var(--ink);
+  aspect-ratio: 4/3;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.case-visual-inner {
+  text-align: center; padding: 40px;
+}
+.case-visual-title {
+  font-family: var(--serif); font-size: 28px;
+  color: var(--white); font-weight: 400; margin-bottom: 8px;
+}
+.case-visual-sub {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.case-result-pills {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px;
+  justify-content: center;
+}
+.result-pill {
+  font-family: var(--mono); font-size: 10px;
+  font-weight: 500; padding: 5px 12px;
+  background: rgba(200,96,42,0.2); color: #F0A070;
+  letter-spacing: 0.06em;
+}
+.case-content { padding: 20px 0; }
+.case-step {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.case-title {
+  font-family: var(--serif); font-size: 28px;
+  font-weight: 400; line-height: 1.2; color: var(--ink);
+  margin-bottom: 16px;
+}
+.case-p {
+  font-size: 14px; font-weight: 300; color: var(--ink-soft);
+  line-height: 1.8; margin-bottom: 24px;
+}
+.case-metrics-row {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px;
+  margin-bottom: 24px;
+}
+.case-m {
+  padding: 16px; background: var(--accent-soft);
+}
+.case-m-num {
+  font-family: var(--serif); font-size: 22px;
+  color: var(--accent); margin-bottom: 4px;
+}
+.case-m-label {
+  font-size: 11px; color: var(--ink-muted); font-weight: 300;
+}
+
+/* SKILLS */
+.skills-section { background: var(--ink); }
+.skills-section .section-label { color: rgba(200,96,42,0.8); }
+.skills-section .section-label::after { background: rgba(255,255,255,0.1); }
+.skills-section .section-h2 { color: var(--white); }
+.skills-section .section-h2 em { color: var(--accent); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.08);
+}
+.skill-group {
+  background: var(--ink); padding: 40px 36px;
+}
+.skill-group-label {
+  font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+}
+.skill-list {
+  list-style: none;
+}
+.skill-list li {
+  font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.6);
+  padding: 7px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  line-height: 1.4;
+}
+.skill-list li:last-child { border-bottom: none; }
+
+/* ===========================================================
+   Credentials & Certifications Section (With Images)
+=========================================================== */
+.credentials-section {
+    padding: 80px 24px;
+    background-color: var(--cream);
+    border-top: 1px solid var(--border);
+}
+
+.credentials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.credentials-section .section-tag {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-top: 0;
+    margin-bottom: 32px;
+}
+
+.credentials-grid {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically for high-detail view */
+    gap: 32px;
+}
+
+.credential-card {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Image on left, text details on right */
+    gap: 32px;
+    background-color: var(--white);
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(15, 15, 16, 0.01);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credential-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(15, 15, 16, 0.04);
+}
+
+/* Certificate Image Container */
+.cred-media {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 15, 16, 0.08);
+    background-color: #f3f3f0; /* Soft loader background color */
+}
+
+.cred-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image neatly inside container */
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.credential-card:hover .cred-img {
+    transform: scale(1.03); /* Subtle zoom effect on hover */
+}
+
+/* Card Content Styling */
+.cred-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cred-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.cred-badge {
+    background-color: var(--accent-soft);
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.cred-title-block h3 {
+    font-family: var(--sans);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--ink);
+    line-height: 1.3;
+}
+
+.cred-issuer {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cred-details {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===========================================================
+   Responsive Mobile Adjustments
+=========================================================== */
+@media (max-width: 768px) {
+    .credentials-section {
+        padding: 60px 16px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+    
+    .credential-card {
+        grid-template-columns: 1fr; /* Stack image above text on mobile */
+        gap: 20px;
+        padding: 16px;
+    }
+    
+    .cred-media {
+        height: 180px; /* Compact height for phone screens */
+    }
+}
+
+/* ===========================================================
+   High-Converting Intervention CTA Section
+=========================================================== */
+.cta-section {
+    padding: 100px 24px;
+    background-color: var(--ink); /* Deep crisp carbon background */
+    color: var(--white);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-tagline {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent); /* Electric blue stands out instantly on dark BG */
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.cta-title {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.15;
+    margin: 0 0 20px 0;
+    color: var(--white);
+}
+
+.cta-description {
+    font-family: var(--sans);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--ink-muted); /* Modern zinc gray */
+    margin: 0 0 40px 0;
+}
+
+.cta-action-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Primary High-Contrast Button */
+.cta-action-group .btn-primary {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 16px 36px;
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 119, 255, 0.3);
+}
+
+.cta-action-group .btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: #0062d1; /* Slightly darker rich blue for hover state */
+}
+
+.cta-subtext {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+}
+
+/* ===========================================================
+   Responsive Mobile Scaling
+=========================================================== */
+@media (max-width: 768px) {
+    .credentials-section {
+        padding: 60px 16px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+    
+    .credentials-grid {
+        grid-template-columns: 1fr; /* Pure stacked layout on mobile screens */
+        gap: 16px;
+    }
+    
+    .cta-section {
+        padding: 80px 20px;
+    }
+    
+    .cta-title {
+        font-size: 2.25rem;
+    }
+    
+    .cta-description {
+        font-size: 1rem;
+    }
+}
+/* ACHIEVEMENTS */
+.achievements-section { background: var(--accent-soft); }
+.achievements-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 2px;
+  background: var(--border);
+}
+.achievement-item {
+  background: var(--cream); padding: 32px 36px;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.achievement-icon {
+  font-family: var(--serif); font-size: 32px;
+  color: var(--accent); line-height: 1; flex-shrink: 0;
+  margin-top: 2px;
+}
+.achievement-title {
+  font-size: 14px; font-weight: 500; color: var(--ink);
+  margin-bottom: 4px;
+}
+.achievement-sub {
+  font-size: 12px; font-weight: 300; color: var(--ink-muted);
+}
+
+/* CONTACT */
+.contact-section {
+  background: var(--ink); color: var(--white);
+}
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.contact-h2 {
+  font-family: var(--serif); font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400; line-height: 1.15; color: var(--white);
+  margin-bottom: 20px;
+}
+.contact-h2 em { font-style: italic; color: var(--accent); }
+.contact-sub {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.5); line-height: 1.8;
+  margin-bottom: 40px;
+}
+.contact-links { display: flex; flex-direction: column; gap: 16px; }
+.contact-link {
+  display: flex; align-items: center; gap: 16px;
+  text-decoration: none; padding: 16px 20px;
+  border: 0.5px solid rgba(255,255,255,0.1);
+  transition: border-color 0.2s;
+}
+.contact-link:hover { border-color: var(--accent); }
+.contact-link-label {
+  font-family: var(--mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.35); margin-bottom: 2px;
+}
+.contact-link-val {
+  font-size: 13px; color: var(--white); font-weight: 400;
+}
+.contact-form-side { padding-top: 8px; }
+.form-label {
+  font-family: var(--mono); font-size: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4); display: block; margin-bottom: 6px;
+}
+.form-input {
+  width: 100%; background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  color: var(--white); font-family: var(--sans);
+  font-size: 14px; font-weight: 300;
+  padding: 12px 16px; outline: none;
+  transition: border-color 0.2s; margin-bottom: 16px;
+}
+.form-input:focus { border-color: var(--accent); }
+.form-input::placeholder { color: rgba(255,255,255,0.2); }
+textarea.form-input { resize: vertical; min-height: 100px; }
+.btn-accent {
+  font-family: var(--sans); font-size: 13px;
+  font-weight: 500; letter-spacing: 0.04em;
+  padding: 14px 28px; background: var(--accent);
+  color: var(--white); border: none; cursor: pointer;
+  transition: background 0.2s; width: 100%;
+}
+.btn-accent:hover { background: #b05520; }
+
+/* FOOTER */
+footer {
+  background: var(--ink); border-top: 0.5px solid rgba(255,255,255,0.08);
+  padding: 24px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(255,255,255,0.25); letter-spacing: 0.06em;
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-family: var(--mono); font-size: 10px;
+  color: rgba(255,255,255,0.3); text-decoration: none;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* HIRE BADGE */
+.hire-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,96,42,0.12); border: 0.5px solid rgba(200,96,42,0.3);
+  padding: 8px 16px; margin-bottom: 32px;
+}
+.hire-badge-text {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--accent); letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* SCROLL ANIMATIONS */
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  section { padding: 70px 24px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 100px 24px 60px; border-right: none; border-bottom: 0.5px solid var(--border); }
+  .hero-right { min-height: 320px; }
+  .hero-stats { grid-template-columns: repeat(3,1fr); }
+  .stat-item { padding: 20px 16px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .work-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .case-study { grid-template-columns: 1fr; direction: ltr; gap: 40px; }
+  .case-study.reverse { direction: ltr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .achievements-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px 24px; }
+}
+
+/* ============================================================
+   Blinking / Color-Shifting Marquee (Yellow to Grey)
+   ============================================================ */
+
+/* 1. Base style for your marquee text items */
+.marquee-item {
+  /* Dynamic color shifting animation (8 seconds smooth loop) */
+  animation: yellowToGrey 8s infinite ease-in-out;
+  transition: color 0.4s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+/* 2. Hover State: Instantly turns your signature blue */
+.marquee-wrap:hover .marquee-item {
+  animation-play-state: paused; /* Pauses the yellow-to-grey transition */
+  color: #007AFF !important;   /* Turns signature blue */
+  text-shadow: 0 0 10px rgba(0, 122, 255, 0.15); /* Gives a soft modern glow */
+}
+
+/* 3. The Automatic Yellow-to-Grey Animation Loop */
+@keyframes yellowToGrey {
+  0% {
+    color: #FFCC00; /* Warm Accent Yellow */
+  }
+  50% {
+    color: #8E8E93; /* Elegant Charcoal/Grey */
+  }
+  100% {
+    color: #FFCC00; /* Loop back to Yellow */
+  }
+}
+
+/* ============================================================
+   Perfect Grid Overlay & Premium iOS Blue Tooltips
+   ============================================================ */
+
+/* 1. Transparent absolute link that covers the entire card area */
+.card-overlay-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* 2. Tooltip Base Configuration on the card */
+[data-tooltip] {
+  position: relative;
+}
+
+/* 3. The iOS Style Blue Chat Bubble */
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 102%; /* Sits cleanly just above the card */
+  right: 24px;  /* Aligns the bubble to the right edge */
+  transform: translateY(10px);
+  
+  /* Rich iOS Blue Gradient Style */
+  background: linear-gradient(135deg, #007AFF, #0056B3);
+  color: #FFFFFF !important;
+  padding: 10px 18px;
+  font-family: var(--sans, sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  
+  /* iOS-Style Pill Shape & Modern Shadow */
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 122, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  
+  /* Animation states */
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1000;
+}
+
+/* 4. The Edge Pointer (Positioned at the right edge, matching iOS message bubbles) */
+[data-tooltip]::after {
+  content: "";
+  position: absolute;
+  bottom: 102%;
+  right: 44px; /* Perfectly aligned to the right-side pointer zone */
+  transform: translateY(10px);
+  
+  /* Creates arrow shape using borders matching the gradient base */
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #0056B3 transparent transparent;
+  
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 1000;
+  margin-bottom: -6px; /* Glues the pointer flush to the bubble */
+}
+
+/* 5. Hover Actions (Shows and slides the bubble up smoothly) */
+[data-tooltip]:hover::before,
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Nur Darwisyah</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn-outline" href="#" download>Download Portfolio PDF</a>
+    <a class="btn-fill" href="#contact">Let's Talk</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding: 0;">
+  <div class="hero-left">
+    <div class="hire-badge">
+      <div class="dot-green"></div>
+      <span class="hire-badge-text">DESIGNING AT THE SPEED OF AI ⚡</span>
+    </div>
+    <div class="hero-tag">Creative Designer</div>
+    <h1 class="hero-h1">Design that <em>converts,</em><br>not just decorates.</h1>
+    <p class="hero-sub">Bridging the gap between strategy and execution. I deliver high-converting brand systems and print-ready production using AI-powered workflows that cut standard design turnarounds in half.</p>
+    <div class="hero-btns">
+      <a href="#work" class="btn-fill">View my work</a>
+      <a href="#" class="btn-outline" download>Download Portfolio PDF</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-top">
+      <div class="hero-name-large">Nur Darwisyah</div>
+      <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.7;max-width:340px;">Founder, Peachies Station • 3+ Years specializing in digital, print, and high-volume brand production.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years across print, digital & brand production</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">40–60%</div>
+        <div class="stat-label">Production time saved via AI workflows</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">120K+</div>
+        <div class="stat-label">Impressions on a single 30-day campaign</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item">Adobe Creative Suite</div>
+    <div class="marquee-item">Figma · Framer · Webflow · Visual Studio Code</div>
+    <div class="marquee-item">AI-Assisted Workflows</div>
+    <div class="marquee-item">Meta Ads</div>
+    <div class="marquee-item">TOFU/MOFU/BOFU Funnel Strategy</div>
+    <div class="marquee-item">Prepress · CMYK · Print Production</div>
+    <div class="marquee-item">WooCommerce · WordPress</div>
+    <div class="marquee-item">Brand Identity Systems</div>
+    <div class="marquee-item">Performance Creatives</div>
+    <div class="marquee-item">Landing Page Design</div>
+    <div class="marquee-item">Adobe Creative Suite</div>
+    <div class="marquee-item">Figma · Framer · Webflow · Visual Studio Code</div>
+    <div class="marquee-item">AI-Assisted Workflows</div>
+    <div class="marquee-item">Meta Ads</div>
+    <div class="marquee-item">TOFU/MOFU/BOFU Funnel Strategy</div>
+    <div class="marquee-item">Prepress · CMYK · Print Production</div>
+    <div class="marquee-item">WooCommerce · WordPress</div>
+    <div class="marquee-item">Brand Identity Systems</div>
+    <div class="marquee-item">Performance Creatives</div>
+    <div class="marquee-item">Landing Page Design</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid">
+    <div class="about-image-block fade-up">
+      <div class="about-image-placeholder">
+        <div style="font-family:var(--serif);font-size:18px;color:rgba(255,255,255,0.2);font-style:italic;text-align:center;padding:20px;">
+          [ Replace with your photo from<br>your portfolio introduction slide ]
+        </div>
+        <div class="about-badge">
+          Nur Darwisyah<br>"Engine behind the execution"
+        </div>
+      </div>
+      <p class="about-image-label" style="text-align:center;margin-top:28px;margin-bottom:0;">Nur Darwisyah · Creative Designer</p>
+    </div>
+    <div class="about-content fade-up">
+      <h2 class="section-h2">The engine<br>behind the <em>execution</em></h2>
+      <p class="about-p">I’m Nur Darwisyah — a Creative Designer & Systems Builder who bridges the gap between high-impact visuals and direct business metrics.
+
+Over the past 3+ years, I’ve operated at the intersection of print, digital, and client operations. I cut my teeth in the fast-paced commercial print industry—managing accounts and advising over 200+ clients monthly—giving me a deep, front-row understanding of commercial client needs, precision data handling, and prepress standards.</p>
+      <p class="about-p">How I work: I design for conversions, not just aesthetics. By launching Peachies Station—my own e-commerce brand—I built fully automated digital pipelines using AI content systems. I treat AI tools as high-speed production partners to design, test, and ship creative assets at 2x the speed of standard workflows—without ever compromising on quality.</p>
+      <p class="about-p">Looking for: A collaborative, fast-paced team where I can deploy high-performance brand systems, streamline production bottlenecks, and drive measurable creative growth.</p>
+      <div class="about-chips">
+        <span class="chip chip-accent">National Design Awardee</span>
+        <span class="chip">High Velocity Producer</span>
+        <span class="chip">3+ Years Commercial Experience</span>
+        <span class="chip">AI Workflow Specialist</span>
+        <span class="chip">Print + Digital Prepress</span>
+        <span class="chip">Bilingual Production</span>
+        <span class="chip">E-Commerce Creative Director</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="work-section">
+  <div class="section-label">Selected work</div>
+  <h2 class="section-h2">Projects built<br>to <em>perform</em></h2>
+  <div class="work-grid">
+    <div class="work-card fade-up">
+      <div class="work-card-inner">
+        <div>
+          <div class="work-tag">Digital · Landing Page · Funnel Design</div>
+          <div class="work-card-num">01</div>
+          <div class="work-title">Kidzy — Conversion-focused landing page redesign</div>
+          <div class="work-desc">Rebuilt a cluttered e-commerce landing page into a high-converting conversion funnel. By restructuring the information hierarchy (Hero → Social Proof → High-Intent CTAs) and optimizing the mobile checkout path, I eliminated user friction and turned passive traffic into active buyers.</div>
+        </div>
+        <div>
+          <div class="work-metrics">
+            <span class="work-metric">CTR 3.16% → 4.04%</span>
+            <span class="work-metric">0 → 44 Conversions</span>
+            <span class="work-metric">120K Impressions</span>
+          </div>
+          <a class="work-arrow" href="projects/kidzy.html">View case study →</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card fade-up">
+      <div class="work-card-inner">
+        <div>
+          <div class="work-tag">Branding · E-Commerce · AI-Assisted Production</div>
+          <div class="work-card-num">02</div>
+          <div class="work-title">DigiStore — Scalable digital brand system</div>
+          <div class="work-desc">Designed a cohesive visual identity and launched an automated e-commerce store targeting North American markets. Built a custom AI-assisted production pipeline that generates 70+ on-brand marketing creatives weekly, cutting creative production overhead in half.</div>
+        </div>
+        <div>
+          <div class="work-metrics">
+            <span class="work-metric">12K Impressions</span>
+            <span class="work-metric">361 Clicks</span>
+            <span class="work-metric">70+ Creatives / week</span>
+          </div>
+          <a class="work-arrow" href="projects/peachies.station.html">View case study →</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card fade-up">
+      <div class="work-card-inner">
+        <div>
+          <div class="work-tag">Print · Event · Government-Linked</div>
+          <div class="work-card-num">03</div>
+          <div class="work-title">Budi Madani — Event print collaterals</div>
+          <div class="work-desc">Directed the technical prepress and production of high-visibility physical media for a major national program. Engineered flawless CMYK layouts across multiple file types and sizes, ensuring 100% technical accuracy, zero costly reprints, and on-time delivery under a tight deadline.</div>
+        </div>
+        <div>
+          <div class="work-metrics">
+            <span class="work-metric">Zero Reprints</span>
+            <span class="work-metric">Multi-SKU Delivery</span>
+            <span class="work-metric">On-Time · 100%</span>
+          </div>
+          <a class="work-arrow" href="projects/budi.madani.html">View case study →</a>
+        </div>
+      </div>
+    </div>
+    <div class="work-card fade-up">
+      <div class="work-card-inner">
+        <div>
+          <div class="work-tag">Branding · SME · Print + Digital</div>
+          <div class="work-card-num">04</div>
+          <div class="work-title">SME brand identities — End-to-end visual systems</div>
+          <div class="work-desc">Developed complete, scalable brand identity guidelines and digital assets for emerging SMEs across retail and F&B. Empowered business owners with easy-to-use social templates and print-ready collateral systems that keep their customer touchpoints consistent as they grow.</div>
+        </div>
+        <div>
+          <div class="work-metrics">
+            <span class="work-metric">3+ Years Freelance</span>
+            <span class="work-metric">Multiple SME Clients</span>
+          </div>
+          <a class="work-arrow" href="projects/sme.clients.html">View projects →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="section-label">Case studies</div>
+  <h2 class="section-h2">The work, <em>in depth</em></h2>
+
+  <div class="case-study fade-up">
+    <div class="case-visual">
+      <div class="case-visual-inner">
+        <div class="case-visual-title">Kidzy</div>
+        <div class="case-visual-sub">Landing Page Redesign</div>
+        <div class="case-result-pills">
+          <span class="result-pill">CTR +27.8%</span>
+          <span class="result-pill">0 → 44 Conversions</span>
+          <span class="result-pill">120K Impressions</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-content">
+      <div class="case-step">Case 01 · Digital Funnel</div>
+      <h3 class="case-title">Rebuilding a broken page into a converting machine</h3>
+      <p class="case-p"><strong>The Challenge:</strong> A digital product client had a landing page with cluttered layout, buried CTAs, duplicate content, and no visual hierarchy. Result: high bounce rates and zero conversions despite paid traffic.</p>
+      <p class="case-p"><strong>My Approach:</strong> I audited four critical failure points on the legacy page and restructured the user journey using a conversion-first hierarchy (Hero → Clear Value Prop → Social Proof → High-Intent CTAs). By cleaning up the layout, optimizing mobile touchpoints, and anchoring repetitive CTAs at high-intent scroll depths, I completely eliminated checkout friction.</p>
+      <div class="case-metrics-row">
+        <div class="case-m"><div class="case-m-num"><strong>120K</strong></div><div class="case-m-label">Impressions after optimisation</div></div>
+        <div class="case-m"><div class="case-m-num"><strong>4.04%</strong></div><div class="case-m-label">CTR (up from 3.16%)</div></div>
+        <div class="case-m"><div class="case-m-num"><strong>44</strong></div><div class="case-m-label">Conversions (up from 0)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-study reverse fade-up">
+    <div class="case-visual">
+      <div class="case-visual-inner">
+        <div class="case-visual-title">DigiStore</div>
+        <div class="case-visual-sub">Brand System + E-Commerce</div>
+        <div class="case-result-pills">
+          <span class="result-pill">70+ Creatives / week</span>
+          <span class="result-pill">12K Impressions</span>
+          <span class="result-pill">40–60% Time Saved</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-content">
+      <div class="case-step">Case 02 · Brand + AI Production</div>
+      <h3 class="case-title">Building a scalable brand system from scratch</h3>
+      <p class="case-p"><strong>The Challenge:</strong> Operating without a standardized visual framework meant every marketing asset had to be designed from scratch—resulting in visual inconsistency, slow production turnarounds, and zero ability to scale campaigns quickly.</p>
+      <p class="case-p"><strong>My Approach:</strong> First, I established a robust digital brand identity system. Next, I engineered a custom, AI-assisted asset production engine using automated creative tools and templates. I mapped this pipeline directly to a TOFU/MOFU/BOFU marketing funnel, producing targeted, persona-based creative variations that convert audiences at different stages of the buying cycle.</p>
+      <div class="case-metrics-row">
+        <div class="case-m"><div class="case-m-num"><strong>70+</strong></div><div class="case-m-label">Creatives produced in under 1 week</div></div>
+        <div class="case-m"><div class="case-m-num"><strong>12K</strong></div><div class="case-m-label">Ad impressions, month 1</div></div>
+        <div class="case-m"><div class="case-m-num"><strong>361</strong></div><div class="case-m-label">Clicks to landing page</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="section-label">Tools & Skills</div>
+  <h2 class="section-h2">Core capabilities & <em>toolkits</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-up">
+      <div class="skill-group-label">Design & Production</div>
+      <ul class="skill-list">
+        <li>Adobe Photoshop</li>
+        <li>Adobe Illustrator</li>
+        <li>Adobe InDesign</li>
+        <li>Figma · Framer · Webflow · Visual Studio Code</li>
+        <li>Canva Pro</li>
+        <li>Prepress — CMYK, 300dpi, bleed/trim</li>
+        <li>Desktop Publishing (DTP)</li>
+        <li>Typography · Brand Visual Identity</li>
+        <li>Mock-up preparation</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-up">
+      <div class="skill-group-label">AI & Content Tools</div>
+      <ul class="skill-list">
+        <li>AdCreative · Claude</li>
+        <li>HeyGen · ElevenLabs</li>
+        <li>CapCut AI</li>
+        <li>Generative AI — image + copy</li>
+        <li>AI-assisted video scripting</li>
+        <li>WordPress · WooCommerce</li>
+        <li>FunnelGenie</li>
+        <li>AI-assisted content pipelines</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-up">
+      <div class="skill-group-label">Marketing & Strategy</div>
+      <ul class="skill-list">
+        <li>Meta Ads</li>
+        <li>Direct response copywriting</li>
+        <li>TOFU/MOFU/BOFU funnel strategy</li>
+        <li>KPI analysis · Audience segmentation</li>
+        <li>Content calendar planning</li>
+        <li>Social media management</li>
+        <li>E-commerce optimisation</li>
+        <li>A/B creative testing</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="achievements-section">
+  <div class="section-label">Recognition</div>
+  <h2 class="section-h2">Awards &<br><em>leadership</em></h2>
+  <div class="achievements-grid fade-up">
+    <div class="achievement-item">
+      <div class="achievement-icon">★</div>
+      <div>
+        <div class="achievement-title">Best Programme Student — Graphic Design & Print Media</div>
+        <div class="achievement-sub">Balik Pulau Vocational College (KVBP) · 2025 · CGPA 3.86</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">✦</div>
+      <div>
+        <div class="achievement-title">Third Place — Malaysian Medical Association National Poster Competition</div>
+        <div class="achievement-sub">National-level design competition · Professional jury</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◆</div>
+      <div>
+        <div class="achievement-title">Kerjayaku: Goal Accelerator — WOMEN:girls</div>
+        <div class="achievement-sub">Selected participant · April 2026 · Full-day KL workshops</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">●</div>
+      <div>
+        <div class="achievement-title">Global Youth Diplomacy Model United Nations 2026</div>
+        <div class="achievement-sub">Master of Ceremonies · International event</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">▲</div>
+      <div>
+        <div class="achievement-title">Entrepreneurship Coaching — INSKEN</div>
+        <div class="achievement-sub">AI Strategy & Business Model in Creative Industry participant</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+    <div class="achievement-item">
+      <div class="achievement-icon">◇</div>
+      <div>
+        <div class="achievement-title">Academic Excellence — Best in Mathematics, English & Graphic Design</div>
+        <div class="achievement-sub">Excellent Student Awards · Multiple distinctions</div>
+      </div>
+      <div class="achievement-banner">Image placeholder</div>
+    </div>
+  </div>
+</section>
+
+<section id="credentials" class="credentials-section">
+    <div class="credentials-container">
+        <span class="section-tag">CREDENTIALS</span>
+        <h2 class="section-title">Credentials & Certifications</h2>
+        
+        <div class="credentials-grid">
+            <a href="https://linkedin.com/in/ndarwisyah" target="_blank" class="credential-card" data-tooltip="View my LinkedIn post for the full story! 🚀">
+                <div class="cred-media">
+                    <img src="images/insken-certificate.jpg" alt="INSKEN Certified Creative Entrepreneur Certificate" class="cred-img">
+                </div>
+                <div class="cred-content">
+                    <div class="cred-header">
+                        <div class="cred-badge">
+                            <span class="badge-icon">🛡️</span>
+                        </div>
+                        <div class="cred-title-block">
+                            <h3>Certified Creative Entrepreneur</h3>
+                            <p class="cred-issuer">INSKEN (National Entrepreneurship Institute)</p>
+                        </div>
+                    </div>
+                    <p class="cred-details">Specialized in AI Strategy, commercial scalability, and sustainable creative business models.</p>
+                </div>
+            </a>
+
+            <a href="https://linkedin.com/in/ndarwisyah" target="_blank" class="credential-card" data-tooltip="See the print prepress project on my LinkedIn! 🎓">
+                <div class="cred-media">
+                    <img src="images/kvbp-certificate.jpg" alt="Professional Prepress & Digital Print Standards Certificate" class="cred-img">
+                </div>
+                <div class="cred-content">
+                    <div class="cred-header">
+                        <div class="cred-badge">
+                            <span class="badge-icon">🎓</span>
+                        </div>
+                        <div class="cred-title-block">
+                            <h3>Professional Prepress & Digital Print Standards</h3>
+                            <p class="cred-issuer">Balik Pulau Vocational College (KVBP)</p>
+                        </div>
+                    </div>
+                    <p class="cred-details">Certified technical competency in CMYK calibration, desktop publishing (DTP), and high-volume media production.</p>
+                </div>
+            </a>
+
+            <a href="https://linkedin.com/in/ndarwisyah" target="_blank" class="credential-card" data-tooltip="Read how I built this workflow on LinkedIn! ⚙️">
+                <div class="cred-media">
+                    <img src="images/ai-automation-certificate.jpg" alt="Advanced AI Content & Automation Systems Certification" class="cred-img">
+                </div>
+                <div class="cred-content">
+                    <div class="cred-header">
+                        <div class="cred-badge">
+                            <span class="badge-icon">⚙️</span>
+                        </div>
+                        <div class="cred-title-block">
+                            <h3>Advanced AI Content & Automation Systems</h3>
+                            <p class="cred-issuer">Self-Directed / Industry Validated</p>
+                        </div>
+                    </div>
+                    <p class="cred-details">Verified execution of automated multi-channel ad creation, asset generation pipelines, and direct-response workflows.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="cta-intervention" class="cta-section">
+    <div class="cta-wrapper">
+        <span class="cta-tagline">THE NEXT STEP</span>
+        <h2 class="cta-title">Is your creative production bottlenecking your growth?</h2>
+        <p class="cta-description">
+            If your team is drowning in repetitive ad variations, struggling with slow turnarounds, or facing costly print errors—let’s optimize your pipeline. 
+            I build automated AI workflows and high-precision print prepress systems that double your output without sacrificing visual quality.
+        </p>
+        <div class="cta-action-group">
+            <a href="#contact" class="btn-primary">Let's Talk Efficiency →</a>
+            <span class="cta-subtext">Or skip the chat and view my resume below.</span>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-grid">
+    <div>
+      <div class="section-label" style="color:rgba(200,96,42,0.8);">Contact</div>
+      <h2 class="contact-h2">Let's build something that <em>performs.</em></h2>
+      <p class="contact-sub">I'm currently open to full-time Creative Designer roles in Kuala Lumpur and Bangsar. If you're building a team that values strategy, speed, and design that converts — I'd love to be part of it.</p>
+      <div class="contact-links">
+        <a href="mailto:ndarwisyah.work@gmail.com" class="contact-link">
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-val">ndarwisyah.work@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+60112622346" class="contact-link">
+          <div>
+            <div class="contact-link-label">Phone / WhatsApp</div>
+            <div class="contact-link-val">+6011-2662 2346</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/ndarwisyah" target="_blank" class="contact-link">
+          <div>
+            <div class="contact-link-label">LinkedIn</div>
+            <div class="contact-link-val">linkedin.com/in/ndarwisyah</div>
+          </div>
+        </a>
+        <a href="#" class="contact-link" download>
+          <div>
+            <div class="contact-link-label">Resume</div>
+            <div class="contact-link-val">Download PDF →</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form-side">
+      <input type="hidden" name="access_key" value="de1d04ee-9752-4f9a-a97d-9afc70df6a81">
+      
+      <input type="hidden" name="subject" value="New Portfolio Inquiry from Nur Darwisyah Site">
+
+      <label class="form-label">Your name</label>
+      <input class="form-input" type="text" name="name" placeholder="Name" required>
+      
+      <label class="form-label">Your email</label>
+      <input class="form-input" type="email" name="email" placeholder="email@company.com" required>
+      
+      <label class="form-label">Message</label>
+      <textarea class="form-input" name="message" placeholder="Tell me about the role or project..." required></textarea>
+      
+      <button type="submit" class="btn-accent">Send message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Nur Darwisyah · Intentional Visuals · All rights reserved</div>
+  <div class="footer-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="https://linkedin.com/in/ndarwisyah" target="_blank">LinkedIn</a>
+    <a href="mailto:ndarwisyah.work@gmail.com">Email</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
